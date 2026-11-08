@@ -24,7 +24,7 @@
                     @endif
                 </div>
                 <span class="badge">{{ $b->kategori->nama ?? '-' }}</span>
-                <h3>{!! $b->judul !!}</h3>
+                <h3>{{ $b->judul }}</h3>
                 <p class="penulis">{{ $b->penulis }} &middot; {{ $b->tahun_terbit }}</p>
 
                 <div class="aksi-kartu">

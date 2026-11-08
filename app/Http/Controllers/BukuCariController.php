@@ -11,8 +11,8 @@ class BukuCariController extends Controller
     {
         $judul = $request->query('judul');
 
-        // RENTAN: nilai digabung langsung ke string SQL (SQL Injection)
-        $hasil = DB::select("SELECT * FROM bukus WHERE judul = '$judul'");
+        // AMAN: nilai dikirim sebagai parameter terikat (binding), bukan digabung ke string SQL
+        $hasil = DB::select('SELECT * FROM bukus WHERE judul = ?', [$judul]);
 
         return response()->json($hasil);
     }
