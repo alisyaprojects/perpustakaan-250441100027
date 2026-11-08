@@ -12,7 +12,7 @@ Route::middleware(['web', 'auth'])->group(function () {
         Route::get('buku/{buku}', [BukuController::class, 'show'])->name('api.buku.show');
     });
 
-    Route::middleware('permission:kelola data buku')->group(function () {
+    Route::middleware('can:kelola-buku')->group(function () {
         Route::post('buku', [BukuController::class, 'store'])->name('api.buku.store');
         Route::match(['put', 'patch'], 'buku/{buku}', [BukuController::class, 'update'])->name('api.buku.update');
         Route::delete('buku/{buku}', [BukuController::class, 'destroy'])->name('api.buku.destroy');

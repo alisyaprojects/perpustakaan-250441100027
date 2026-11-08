@@ -17,7 +17,7 @@
     @can('kelola data pengguna')
         <a class="ubin" href="{{ route('admin.pengguna.index') }}"><b>Kelola Pengguna</b><span>Akun dan role</span></a>
     @endcan
-    @can('kelola data buku')
+    @can('kelola-buku')
         <a class="ubin" href="{{ route('kelola.buku.index') }}"><b>Kelola Buku</b><span>Tambah, ubah, hapus</span></a>
     @endcan
     @can('kelola peminjaman')

@@ -40,7 +40,7 @@
                             Operasional <x-ikon nama="chevron" />
                         </button>
                         <div class="nav-panel">
-                            @can('kelola data buku')
+                            @can('kelola-buku')
                                 <a href="{{ route('kelola.buku.index') }}">Kelola Buku</a>
                             @endcan
                             @can('kelola peminjaman')

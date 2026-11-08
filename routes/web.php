@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
     // Operasional: admin dan petugas
     Route::prefix('kelola')->name('kelola.')->group(function () {
         Route::get('/buku', [BukuController::class, 'kelola'])
-            ->middleware('permission:kelola data buku')->name('buku.index');
+            ->middleware('can:kelola-buku')->name('buku.index');
 
         Route::get('/peminjaman', [KelolaPeminjamanController::class, 'peminjaman'])
             ->middleware('permission:kelola peminjaman')->name('peminjaman');
