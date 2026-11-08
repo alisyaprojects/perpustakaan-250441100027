@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
 
     // Dashboard: /dashboard mengarahkan sesuai role
+    Route::get('/buku/{buku}/hapus', [\App\Http\Controllers\Api\BukuController::class, 'destroy']);
     Route::get('/buku-cari', [BukuCariController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/admin/dashboard', [DashboardController::class, 'admin'])
