@@ -9,6 +9,7 @@ use App\Http\Controllers\PinjamController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuCariController;
+use App\Http\Controllers\PeminjamanDetailController;
 
 Route::get('/', function () {
     return view('home');
@@ -18,6 +19,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
 
     // Dashboard: /dashboard mengarahkan sesuai role
+    Route::get('/peminjaman/{id}', [PeminjamanDetailController::class, 'show']);
     Route::get('/buku/{buku}/hapus', [\App\Http\Controllers\Api\BukuController::class, 'destroy']);
     Route::get('/buku-cari', [BukuCariController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
