@@ -8,6 +8,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PinjamController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BukuCariController;
 
 Route::get('/', function () {
     return view('home');
@@ -17,6 +18,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
 
     // Dashboard: /dashboard mengarahkan sesuai role
+    Route::get('/buku-cari', [BukuCariController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/admin/dashboard', [DashboardController::class, 'admin'])
         ->middleware('permission:akses dashboard admin')->name('admin.dashboard');
