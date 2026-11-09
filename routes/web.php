@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuCariController;
 use App\Http\Controllers\PeminjamanDetailController;
 
+
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
